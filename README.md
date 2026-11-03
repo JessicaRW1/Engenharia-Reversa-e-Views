@@ -49,3 +49,14 @@ WHERE o.status <> 'Shipped'
 ```
 
 **Resultado esperado:** a última consulta deve retornar zero registros, indicando que nenhum pedido fora dos critérios definidos está aparecendo na View. A confirmação depende da execução no banco `classicmodels`, utilizando o DBeaver.
+
+## 3. Síntese Teórica: Segurança e Abstração
+
+Uma View é uma consulta SQL salva no banco de dados que pode ser consultada como uma tabela virtual. Em vez de repetir um comando longo toda vez que precisa de um relatório, o usuário acessa a View pronta. Esse recurso é explicado nos materiais da Universidade Federal do Rio Grande do Norte (UFRN) e da Universidade Virtual do Estado de São Paulo (UNIVESP).
+
+### Segurança de Dados
+
+Uma View permite mostrar apenas os campos necessários para quem vai consultar as informações. No caso da ClassicModels, o gerente pode visualizar o nome do cliente, o número do pedido e o valor total, sem precisar acessar outras colunas das tabelas originais.
+
+Para que essa proteção funcione, também é necessário configurar corretamente as permissões de acesso no banco de dados.
+
