@@ -33,3 +33,19 @@ SELECT *
 FROM view_relatorio_financeiro
 ORDER BY orderNumber;
 ```
+
+Para verificar se algum pedido cancelado, retido ou fora do ano de 2004 entrou no relatório, utilizamos esta consulta:
+
+```sql
+SELECT
+    v.orderNumber,
+    o.status,
+    o.orderDate
+FROM view_relatorio_financeiro v
+JOIN orders o ON v.orderNumber = o.orderNumber
+WHERE o.status <> 'Shipped'
+   OR o.orderDate < '2004-01-01'
+   OR o.orderDate >= '2005-01-01';
+```
+
+**Resultado esperado:** a última consulta deve retornar zero registros, indicando que nenhum pedido fora dos critérios definidos está aparecendo na View. A confirmação depende da execução no banco `classicmodels`, utilizando o DBeaver.
