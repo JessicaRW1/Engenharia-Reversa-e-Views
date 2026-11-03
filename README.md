@@ -26,3 +26,10 @@ WHERE o.status = 'Shipped'
   AND o.orderDate < '2005-01-01'
 GROUP BY c.customerName, o.orderNumber;
 ```
+Para visualizar os pedidos presentes na View, utilizamos a seguinte consulta:
+
+```sql
+SELECT *
+FROM view_relatorio_financeiro
+ORDER BY orderNumber;
+```
