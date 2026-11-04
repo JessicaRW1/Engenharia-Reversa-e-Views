@@ -59,4 +59,24 @@ Uma View é uma consulta SQL salva no banco de dados que pode ser consultada com
 Uma View permite mostrar apenas os campos necessários para quem vai consultar as informações. No caso da ClassicModels, o gerente pode visualizar o nome do cliente, o número do pedido e o valor total, sem precisar acessar outras colunas das tabelas originais.
 
 Para que essa proteção funcione, também é necessário configurar corretamente as permissões de acesso no banco de dados.
+### Abstração da Complexidade
 
+A View esconde os detalhes de uma consulta mais trabalhosa. O gerente não precisa saber como funcionam os `JOINs`, os filtros ou a soma dos valores.
+
+Ele pode consultar o relatório com um comando simples:
+
+```sql
+SELECT * FROM view_relatorio_financeiro;
+```
+
+Isso facilita o uso e evita que cada pessoa faça o cálculo de um jeito diferente.
+
+Por esses motivos, utilizar uma View nesse caso torna o relatório financeiro mais simples de consultar e ajuda a manter os critérios de cálculo iguais para todos.
+
+## Referências
+
+UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE (UFRN). **Aula 07 – Linguagem SQL: Subconsultas e Visões**. Instituto Metrópole Digital, [s. d.]. Disponível em: https://materialpublic.imd.ufrn.br/curso/disciplina/4/56/7/10. Acesso em: 3 nov. 2026.
+
+UNIVERSIDADE VIRTUAL DO ESTADO DE SÃO PAULO (UNIVESP). **Banco de Dados – Introdução a Views e conceitos básicos sobre Data Warehouse e Data Lake**. YouTube, 16 fev. 2024. Disponível em: https://www.youtube.com/watch?v=lUSAFdDk1c0. Acesso em: 3 nov. 2026.
+
+ORACLE. **MySQL 8.4 Reference Manual: CREATE VIEW Statement**. [S. l.], [s. d.]. Disponível em: https://dev.mysql.com/doc/refman/8.4/en/create-view.html. Acesso em: 3 nov. 2026.
